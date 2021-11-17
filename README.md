@@ -34,3 +34,96 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 // https://strapi.io/blog/build-a-blog-with-next-react-js-strapi
+
+<!-- {
+  "id": 1,
+  "published_at": "2021-11-13T16:40:39.041Z",
+  "created_at": "2021-11-13T16:40:39.041Z",
+  "updated_at": "2021-11-17T06:14:22.978Z",
+  "seo": {
+    "id": 1,
+    "metaTitle": "Вячеслав Коханный",
+    "metaDescription": "Фронтенд-разработчик",
+    "shareImage": {
+      "id": 13,
+      "name": "avatar.jpg",
+      "alternativeText": "",
+      "caption": "",
+      "width": 512,
+      "height": 512,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_avatar.jpg",
+          "hash": "thumbnail_avatar_a5faddaad2",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 156,
+          "height": 156,
+          "size": 7.16,
+          "path": null,
+          "url": "/uploads/thumbnail_avatar_a5faddaad2.jpg"
+        },
+        "small": {
+          "name": "small_avatar.jpg",
+          "hash": "small_avatar_a5faddaad2",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "width": 500,
+          "height": 500,
+          "size": 54.96,
+          "path": null,
+          "url": "/uploads/small_avatar_a5faddaad2.jpg"
+        }
+      },
+      "hash": "avatar_a5faddaad2",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "size": 58.1,
+      "url": "/uploads/avatar_a5faddaad2.jpg",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "created_at": "2021-11-13T19:38:49.070Z",
+      "updated_at": "2021-11-13T19:38:49.085Z"
+    }
+  },
+  "hero": {
+    "id": 1,
+    "title": "Вячеслав Коханный, фронтенд-разработчик",
+    "nav": "**Навигация по сайту:**\n- [Портфолио](/portfolio)\n- [Блог](/blog)",
+    "skills": "**Владею:**\n- HTML5\n- CSS3 и SCSS\n- JavaScript\n- React\n- Redux Toolkit\n- React Hook Form\n- Material UI\n- Styled Components\n- ООП\n- Git\n- БЭМ\n\n**Базовый уровень:**\n- TypeScript\n- React Query\n- Redux Thunk\n- Redux Saga\n- Webpack",
+    "description": "Создаю фронтенд сайтов и веб-приложений. Ищу работу",
+    "contacts": "**Предложить работу:**\n- [slavik.kohanniy@yandex.ru](mailto:slavik.kohanniy@yandex.ru)\n- [Телеграм](https://t.me/kohanniy)\n",
+    "avatar": {
+      "id": 15,
+      "name": "main-round.png",
+      "alternativeText": "",
+      "caption": "",
+      "width": 190,
+      "height": 225,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_main-round.png",
+          "hash": "thumbnail_main_round_9099ad4072",
+          "ext": ".png",
+          "mime": "image/png",
+          "width": 132,
+          "height": 156,
+          "size": 55.66,
+          "path": null,
+          "url": "/uploads/thumbnail_main_round_9099ad4072.png"
+        }
+      },
+      "hash": "main_round_9099ad4072",
+      "ext": ".png",
+      "mime": "image/png",
+      "size": 62.78,
+      "url": "/uploads/main_round_9099ad4072.png",
+      "previewUrl": null,
+      "provider": "local",
+      "provider_metadata": null,
+      "created_at": "2021-11-15T06:01:34.821Z",
+      "updated_at": "2021-11-15T06:01:34.832Z"
+    }
+  }
+} -->

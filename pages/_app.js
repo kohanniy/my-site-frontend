@@ -15,14 +15,14 @@ export default function MyApp({
   emotionCache = clientSideEmotionCache,
   pageProps,
 }) {
-  const { global } = pageProps;
+  const { global, navigation, contacts } = pageProps;
 
   return (
     <CacheProvider value={emotionCache}>
       <Head>
         <link rel='shortcut icon' href={getStrapiMedia(global.favicon)} />
       </Head>
-      <GlobalContext.Provider value={global}>
+      <GlobalContext.Provider value={{ global, navigation, contacts }}>
         <DefaultThemeProvider>
           <Component {...pageProps} />
         </DefaultThemeProvider>
@@ -33,7 +33,11 @@ export default function MyApp({
 
 MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
-  const global = await fetchAPI('/global');
+  const [global, navigation, contacts] = await Promise.all([
+    fetchAPI('/global'),
+    fetchAPI('/navigation'),
+    fetchAPI('/contacts'),
+  ]);
 
-  return { ...appProps, pageProps: { global } };
+  return { ...appProps, pageProps: { global, navigation, contacts } };
 };

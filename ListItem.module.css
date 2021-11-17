@@ -1,0 +1,6 @@
+.listItem::after {
+  content: '|';
+  color: blue;
+  position: absolute;
+  right: -8px;
+}

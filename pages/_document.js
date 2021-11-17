@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta
             name='theme-color'
-            content={defaultTheme.palette.primary.main}
+            content={defaultTheme.palette.common.black}
           />
           <link
             href='https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap'
@@ -40,7 +40,6 @@ MyDocument.getInitialProps = async (ctx) => {
     });
 
   const initialProps = await Document.getInitialProps(ctx);
-  
 
   const emotionStyles = extractCriticalToChunks(initialProps.html);
   const emotionStyleTags = emotionStyles.styles.map((style) => (

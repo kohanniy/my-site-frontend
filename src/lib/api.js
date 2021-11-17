@@ -6,6 +6,5 @@ export const getStrapiURL = (path = '') =>
 export const fetchAPI = async (path) => {
   const requestUrl = getStrapiURL(path);
   const response = await axios.get(requestUrl);
-  // console.log(response);
   return response.data;
 };

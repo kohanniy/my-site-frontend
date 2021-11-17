@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: auto;
+  font-size: 0.8rem;
+}
+
+.shareButton {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 5px;
+}
