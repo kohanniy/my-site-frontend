@@ -7,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 const colors = {
   bodyBackground: '#d3d3d3',
+  black: '#000',
 };
 
 export let defaultTheme = createTheme({
@@ -15,6 +16,7 @@ export let defaultTheme = createTheme({
       styleOverrides: {
         body: {
           background: colors.bodyBackground,
+          color: colors.black,
         },
         '#__next': {
           minHeight: '100vh',
@@ -33,6 +35,13 @@ export let defaultTheme = createTheme({
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+        },
+      },
+    },
   },
   typography: {
     fontFamily: '"Play", "Roboto", "Arial", sans-serif',
@@ -43,6 +52,10 @@ export let defaultTheme = createTheme({
     h2: {
       fontSize: '1.5rem',
       fontWeight: 700,
+    },
+    h3: {
+      fontWeight: 700,
+      fontSize: '1.25rem',
     },
   },
 });

@@ -17,7 +17,7 @@ const sharedButtons = [
   LinkedinShare,
 ];
 
-function SharedButtonsBlock() {
+const SharedButtonsBlock = () => {
   return (
     <List className={styles.list} disablePadding>
       {sharedButtons.map((Button, index) => (

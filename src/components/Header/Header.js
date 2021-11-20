@@ -2,15 +2,17 @@ import React from 'react';
 import Image from 'next/image';
 import { Box, Stack, Typography } from '@mui/material';
 import { getStrapiMedia } from '../../lib/media';
+import { blurDataURL } from '../../lib/constants';
+import Link from '../Link';
 
-function Header({
+const Header = ({
   content,
   direction = 'column',
   spacing = 1,
   avatarWidth = 190,
   avatarHeight = 225,
   navigation = null,
-}) {
+}) => {
   const { title, description, avatar } = content;
   return (
     <Stack
@@ -27,14 +29,16 @@ function Header({
     >
       {avatar && (
         <Box component='figure' sx={{ m: 0 }}>
-          <Image
-            width={avatarWidth}
-            height={avatarHeight}
-            alt='фронтенд-разработчик Вячеслав Коханный'
-            src={getStrapiMedia(avatar)}
-            placeholder='blur'
-            blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOc3Nf3HwAGGwKwZ9cfsgAAAABJRU5ErkJggg=='
-          />
+          <Link noLinkStyle href='/'>
+            <Image
+              width={avatarWidth}
+              height={avatarHeight}
+              alt='фронтенд-разработчик Вячеслав Коханный'
+              src={getStrapiMedia(avatar)}
+              placeholder='blur'
+              blurDataURL={blurDataURL}
+            />
+          </Link>
         </Box>
       )}
       <Box>
@@ -46,6 +50,6 @@ function Header({
       {navigation && navigation}
     </Stack>
   );
-}
+};
 
 export default Header;

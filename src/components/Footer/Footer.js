@@ -5,7 +5,7 @@ import Contacts from '../Contacts/Contacts';
 import SharedButtonsBlock from '../SharedButtonsBlock/SharedButtonsBlock';
 import styles from './Footer.module.css';
 
-function Footer() {
+const Footer = () => {
   const { matchesSm } = useMatchesScreenSize();
   return (
     <Stack component='footer' className={styles.footer} spacing={3}>

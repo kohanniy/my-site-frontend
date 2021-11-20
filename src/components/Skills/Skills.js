@@ -7,32 +7,8 @@ import {
 } from '@mui/material';
 import styles from './Skills.module.css';
 import { motion } from 'framer-motion';
+import { homePageSectionVariants, itemSkillsVariants } from '../../lib/motionVarinats';
 import useMatchesScreenSize from '../../hooks/useMatchesScreenSize';
-
-const listVariants = {
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-    },
-  },
-  hidden: {
-    opacity: 0,
-  },
-};
-
-const itemVariants = {
-  visible: (i) => ({
-    transform: 'scale(1, 1)',
-    transition: {
-      delay: i * 0.2,
-      type: 'spring',
-    },
-  }),
-  hidden: {
-    transform: 'scale(0, 0)',
-  },
-};
 
 const Skills = ({ skills, basic = false }) => {
   const { title, body } = skills;
@@ -42,7 +18,7 @@ const Skills = ({ skills, basic = false }) => {
   return (
     <Box
       initial='hidden'
-      variants={listVariants}
+      variants={homePageSectionVariants}
       whileInView='visible'
       viewport={{ once: true, amount: 0.2 }}
       component={motion.section}
@@ -63,7 +39,7 @@ const Skills = ({ skills, basic = false }) => {
             whileInView='visible'
             viewport={{ once: true, amount: 0.5 }}
             custom={Math.floor(Math.random() * body.length)}
-            variants={itemVariants}
+            variants={itemSkillsVariants}
             key={skill.id}
             color={basic ? 'default' : 'primary'}
             component={motion.li}

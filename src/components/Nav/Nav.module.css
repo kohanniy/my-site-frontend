@@ -12,8 +12,7 @@
   width: 100%;
 }
 
-
-
 .link_active {
   color: #7b1fa2;
+  text-decoration-color: #7b1fa2;
 }
