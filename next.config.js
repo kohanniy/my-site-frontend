@@ -4,5 +4,3 @@ module.exports = {
     domains: ['localhost', 'kohanniy-backend.herokuapp.com'],
   },
 };
-
-// localhost

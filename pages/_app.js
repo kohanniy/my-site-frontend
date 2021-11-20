@@ -7,23 +7,9 @@ import createEmotionCache from '../src/createEmotionCache';
 import DefaultThemeProvider from '../src/themes/defaultTheme';
 import { getStrapiMedia } from '../src/lib/media';
 import { fetchAPI } from '../src/lib/api';
-import { motion, AnimatePresence } from 'framer-motion';
-import PageTransition from '../src/components/PageTransition/PageTransition';
+import { AnimatePresence } from 'framer-motion';
 
 const clientSideEmotionCache = createEmotionCache();
-
-const spring = {
-  type: 'spring',
-  damping: 20,
-  stiffness: 100,
-  when: 'afterChildren',
-};
-
-const variants = {
-  hidden: { opacity: 0, x: -200, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: { opacity: 0, x: 0, y: -100 },
-};
 
 export default function MyApp({
   Component,
