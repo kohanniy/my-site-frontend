@@ -83,6 +83,7 @@ const Link = React.forwardRef(function Link(props, ref) {
       className={className}
       ref={ref}
       to={href}
+      scroll={false}
       {...other}
     />
   );

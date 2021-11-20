@@ -14,6 +14,7 @@ const Header = ({
   navigation = null,
 }) => {
   const { title, description, avatar } = content;
+  // console.log(getStrapiMedia(avatar));
   return (
     <Stack
       direction={direction}

@@ -6,6 +6,7 @@ import { fetchAPI } from '../src/lib/api';
 import Nav from '../src/components/Nav/Nav';
 import Projects from '../src/components/Projects/Projects';
 import Footer from '../src/components/Footer/Footer';
+import PageTransition from '../src/components/PageTransition/PageTransition';
 
 const circularProgressStyles = {
   position: 'absolute',
@@ -22,6 +23,8 @@ const buttonContainerStyles = {
   alignSelf: 'center',
 };
 
+const numberOfAdded = 4;
+
 const Portfolio = ({ portfolio, firstProjects, numberOfProjects }) => {
   const [projects, setProjects] = React.useState(firstProjects);
   const [hasMore, setHasMore] = React.useState(true);
@@ -31,7 +34,7 @@ const Portfolio = ({ portfolio, firstProjects, numberOfProjects }) => {
     setNextProjectsLoading(true);
     try {
       const nextProjects = await fetchAPI(
-        `/projects?_start=${projects.length}&_limit=4`
+        `/projects?_start=${projects.length}&_limit=${numberOfAdded}`
       );
       setProjects((projects) => [...projects, ...nextProjects]);
     } catch (err) {
@@ -41,42 +44,55 @@ const Portfolio = ({ portfolio, firstProjects, numberOfProjects }) => {
     }
   };
 
+  const numberShow =
+    numberOfAdded <= numberOfProjects - projects.length
+      ? numberOfAdded
+      : numberOfProjects - projects.length;
+
+  const numberRemaining =
+    numberOfProjects - projects.length === 1
+      ? 'го оставшегося проекта'
+      : 'х оставшихся проектов';
+
   React.useEffect(() => {
     setHasMore(numberOfProjects > projects.length ? true : false);
   }, [numberOfProjects, projects.length]);
 
   return (
-    <Container maxWidth='lg'>
-      <Seo seo={portfolio.seo} />
-      <Stack spacing={3}>
-        <Header
-          content={portfolio.content}
-          navigation={<Nav />}
-          avatarHeight={150}
-          avatarWidth={150}
-        />
-        <Projects projects={projects} />
-        {hasMore && (
-          <Box sx={buttonContainerStyles}>
-            <Button
-              disabled={nextProjectsLoading}
-              variant='contained'
-              onClick={getMoreProjects}
-            >
-              Показать другие проекты
-            </Button>
-            {nextProjectsLoading && (
-              <CircularProgress
-                component='div'
-                size={24}
-                sx={circularProgressStyles}
-              />
-            )}
-          </Box>
-        )}
-        <Footer />
-      </Stack>
-    </Container>
+
+      <Container component={PageTransition} maxWidth='lg'>
+        <Seo seo={portfolio.seo} />
+        <Stack spacing={3}>
+          <Header
+            content={portfolio.content}
+            navigation={<Nav />}
+            avatarHeight={150}
+            avatarWidth={150}
+          />
+          <Projects projects={projects} />
+          {hasMore && (
+            <Box sx={buttonContainerStyles}>
+              <Button
+                disabled={nextProjectsLoading}
+                variant='contained'
+                onClick={getMoreProjects}
+              >
+                {`Показать еще ${numberShow} из ${
+                  numberOfProjects - projects.length
+                }-${numberRemaining}`}
+              </Button>
+              {nextProjectsLoading && (
+                <CircularProgress
+                  component='div'
+                  size={24}
+                  sx={circularProgressStyles}
+                />
+              )}
+            </Box>
+          )}
+          <Footer />
+        </Stack>
+      </Container>
   );
 };
 
