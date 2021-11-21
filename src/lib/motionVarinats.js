@@ -60,4 +60,7 @@ export const pageTransitionVariants = {
     x: 0,
     y: 100,
   },
+  transition: {
+    duration: 5,
+  },
 };
