@@ -41,8 +41,23 @@ export const projectVariants = {
   },
 };
 
-export const pageTransitionVariants  = {
-  hidden: { opacity: 0, x: -200, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: { opacity: 0, x: 0, y: -100 },
+export const pageTransitionVariants = {
+  hidden: {
+    opacity: 0,
+    x: -200,
+    y: 0,
+  },
+  enter: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+  exit: {
+    opacity: 0,
+    x: 0,
+    y: 100,
+  },
 };
