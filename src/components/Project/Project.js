@@ -71,7 +71,6 @@ const Project = ({ project }) => {
     <>
       <Card
         sx={{ height: '100%', width: '100%'}}
-        // className={styles.card}
         component={motion.div}
         initial='offscreen'
         whileInView='onscreen'
