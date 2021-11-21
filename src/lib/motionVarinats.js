@@ -58,6 +58,6 @@ export const pageTransitionVariants = {
   exit: {
     opacity: 0,
     x: 0,
-    y: 100,
+    y: -100,
   },
 };
