@@ -10,9 +10,18 @@ const Projects = ({ projects }) => {
   return (
     <List
       disablePadding
-      className={clsx(styles.list, {
-        [styles['list_oneColumn']]: matchesSm,
-      })}
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          sm: 'repeat(2, 1fr)',
+        },
+        columnGap: '10px',
+        rowGap: '20px',
+      }}
+      // className={clsx(styles.list, {
+      //   [styles['list_oneColumn']]: matchesSm,
+      // })}
     >
       {projects.map((project) => (
         <ListItem disablePadding key={project.id}>
