@@ -70,7 +70,8 @@ const Project = ({ project }) => {
   return (
     <>
       <Card
-        className={styles.card}
+        sx={{ height: '100%', width: '100%'}}
+        // className={styles.card}
         component={motion.div}
         initial='offscreen'
         whileInView='onscreen'
@@ -78,7 +79,10 @@ const Project = ({ project }) => {
         viewport={{ once: true, amount: 0.1 }}
       >
         <CardActionArea onClick={handleOpenProject}>
-          <Box className={styles.box}>
+          <Box sx={{
+            height: '300px',
+            position: 'relative',
+          }}>
             <Image
               layout='fill'
               objectFit='cover'
