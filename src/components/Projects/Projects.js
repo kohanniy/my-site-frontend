@@ -8,9 +8,12 @@ import styles from './Projects.module.css';
 const Projects = ({ projects }) => {
   const { matchesSm } = useMatchesScreenSize();
   return (
-    <List disablePadding className={clsx(styles.list, {
-      [styles['list_oneColumn']]: matchesSm
-    })}>
+    <List
+      disablePadding
+      className={clsx(styles.list, {
+        [styles['list_oneColumn']]: matchesSm,
+      })}
+    >
       {projects.map((project) => (
         <ListItem disablePadding key={project.id}>
           <Project project={project} />
@@ -18,6 +21,6 @@ const Projects = ({ projects }) => {
       ))}
     </List>
   );
-}
+};
 
 export default Projects;

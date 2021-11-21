@@ -44,55 +44,43 @@ const Portfolio = ({ portfolio, firstProjects, numberOfProjects }) => {
     }
   };
 
-  const numberShow =
-    numberOfAdded <= numberOfProjects - projects.length
-      ? numberOfAdded
-      : numberOfProjects - projects.length;
-
-  const numberRemaining =
-    numberOfProjects - projects.length === 1
-      ? 'го оставшегося проекта'
-      : 'х оставшихся проектов';
-
   React.useEffect(() => {
     setHasMore(numberOfProjects > projects.length ? true : false);
   }, [numberOfProjects, projects.length]);
 
   return (
-
-      <Container component={PageTransition} maxWidth='lg'>
-        <Seo seo={portfolio.seo} />
-        <Stack spacing={3}>
-          <Header
-            content={portfolio.content}
-            navigation={<Nav />}
-            avatarHeight={150}
-            avatarWidth={150}
-          />
-          <Projects projects={projects} />
-          {hasMore && (
-            <Box sx={buttonContainerStyles}>
-              <Button
-                disabled={nextProjectsLoading}
-                variant='contained'
-                onClick={getMoreProjects}
-              >
-                {`Показать еще ${numberShow} из ${
-                  numberOfProjects - projects.length
-                }-${numberRemaining}`}
-              </Button>
-              {nextProjectsLoading && (
-                <CircularProgress
-                  component='div'
-                  size={24}
-                  sx={circularProgressStyles}
-                />
-              )}
-            </Box>
-          )}
-          <Footer />
-        </Stack>
-      </Container>
+    <Container component={PageTransition} maxWidth='lg'>
+      <Seo seo={portfolio.seo} />
+      <Stack spacing={3}>
+        <Header
+          content={portfolio.content}
+          navigation={<Nav />}
+          avatarHeight={150}
+          avatarWidth={150}
+          addContent={`пока ${numberOfProjects}`}
+        />
+        <Projects projects={projects} />
+        {hasMore && (
+          <Box sx={buttonContainerStyles}>
+            <Button
+              disabled={nextProjectsLoading}
+              variant='contained'
+              onClick={getMoreProjects}
+            >
+              Показать ещё
+            </Button>
+            {nextProjectsLoading && (
+              <CircularProgress
+                component='div'
+                size={24}
+                sx={circularProgressStyles}
+              />
+            )}
+          </Box>
+        )}
+        <Footer />
+      </Stack>
+    </Container>
   );
 };
 

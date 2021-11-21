@@ -7,6 +7,7 @@ import Link from '../Link';
 
 const Header = ({
   content,
+  addContent = null,
   direction = 'column',
   spacing = 1,
   avatarWidth = 190,
@@ -14,7 +15,7 @@ const Header = ({
   navigation = null,
 }) => {
   const { title, description, avatar } = content;
-  // console.log(getStrapiMedia(avatar));
+
   return (
     <Stack
       direction={direction}
@@ -44,7 +45,7 @@ const Header = ({
       )}
       <Box>
         <Typography variant='h1' component='h1'>
-          {title}
+          {addContent ? `${title} (${addContent})` : title}
         </Typography>
         <Typography variant='subtitle1'>{description}</Typography>
       </Box>

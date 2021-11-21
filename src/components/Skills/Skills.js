@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  Box,
-  Chip,
-  Stack,
-  Typography,
-} from '@mui/material';
+import { Box, Chip, Stack, Typography } from '@mui/material';
 import styles from './Skills.module.css';
 import { motion } from 'framer-motion';
-import { homePageSectionVariants, itemSkillsVariants } from '../../lib/motionVarinats';
+import {
+  homePageSectionVariants,
+  itemSkillsVariants,
+} from '../../lib/motionVarinats';
 import useMatchesScreenSize from '../../hooks/useMatchesScreenSize';
 
 const Skills = ({ skills, basic = false }) => {

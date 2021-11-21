@@ -13,6 +13,6 @@ const Footer = () => {
       <SharedButtonsBlock />
     </Stack>
   );
-}
+};
 
 export default Footer;

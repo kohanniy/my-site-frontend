@@ -1,7 +1,10 @@
 module.exports = {
   reactStrictMode: true,
-  generateBuildId: () => 'build',
   images: {
-    domains: ['localhost', 'kohanniy-backend.herokuapp.com'],
+    domains: [
+      'localhost',
+      'kohanniy-backend.herokuapp.com',
+      'res.cloudinary.com',
+    ],
   },
 };

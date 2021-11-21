@@ -13,6 +13,6 @@ const PageTransition = (props) => {
       {...props}
     />
   );
-}
+};
 
 export default PageTransition;

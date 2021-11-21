@@ -34,6 +34,6 @@ const SharedButtonsBlock = () => {
       ))}
     </List>
   );
-}
+};
 
 export default SharedButtonsBlock;

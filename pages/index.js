@@ -11,16 +11,25 @@ import PageTransition from '../src/components/PageTransition/PageTransition';
 
 const Home = ({ homepage, skillsData, basicSkillsData, aboutMe }) => {
   return (
-      <Grid component={PageTransition} item xs={11} sm={10} lg={8} m='0 auto' display='grid' rowGap={3}>
-        <Seo seo={homepage.seo} />
-        <Header content={homepage.content} navigation={<Nav />} />
-        <Stack component='main' spacing={3}>
-          <AboutMe content={aboutMe} />
-          <Skills skills={skillsData.content} />
-          <Skills basic skills={basicSkillsData.content} />
-        </Stack>
-        <Footer />
-      </Grid>
+    <Grid
+      component={PageTransition}
+      item
+      xs={11}
+      sm={10}
+      lg={8}
+      m='0 auto'
+      display='grid'
+      rowGap={3}
+    >
+      <Seo seo={homepage.seo} />
+      <Header content={homepage.content} navigation={<Nav />} />
+      <Stack component='main' spacing={3}>
+        <AboutMe content={aboutMe} />
+        <Skills skills={skillsData.content} />
+        <Skills basic skills={basicSkillsData.content} />
+      </Stack>
+      <Footer />
+    </Grid>
   );
 };
 
