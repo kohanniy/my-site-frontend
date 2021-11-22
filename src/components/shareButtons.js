@@ -13,7 +13,7 @@ import {
 } from 'react-share';
 
 export const getURL = (path = '') =>
-  `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}${path}`;
+  {console.log(process.env); return `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}${path}`};
 
 export const FacebookShare = withRouter(({ iconProps, router, ...props }) => (
   <FacebookShareButton url={getURL(router.pathname)} {...props}>
