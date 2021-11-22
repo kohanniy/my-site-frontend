@@ -1,27 +1,26 @@
 import React from 'react';
-import { Box, ListItem, Stack } from '@mui/material';
-import Link from '../Link';
-import DotDivider from '../DotDivider/DotDivider';
-import { GlobalContext } from '../../contexts/globalContext';
-import styles from './Nav.module.css';
-
-const Item = ({ item, linkProps = null, ...props }) => (
-  <ListItem disablePadding key={item.id} {...props}>
-    <Link activeClassName={styles.link_active} href={item.link} {...linkProps}>
-      {item.name}
-    </Link>
-  </ListItem>
-);
+import { v4 as uuidv4 } from 'uuid';
+import { Box, Stack } from '@mui/material';
+import DotDivider from './DotDivider';
+import ItemWithLink from './ItemWithLink';
+import { GlobalContext } from '../contexts/globalContext';
+import styles from '../styles/Common.module.css';
 
 const Nav = ({
   direction = 'row',
   spacing = 2,
+  addLinkToHome = false,
   containerProps = null,
   listProps = null,
   itemProps = null,
-  linkProps = null,
 }) => {
   const { navigation } = React.useContext(GlobalContext);
+
+  let links = navigation.links;
+
+  if (addLinkToHome) {
+    links = [{ id: uuidv4(), name: 'Главная', link: '/' }, ...navigation.links];
+  }
 
   return (
     <Box component='nav' {...containerProps}>
@@ -30,28 +29,27 @@ const Nav = ({
         component='ul'
         direction={direction}
         spacing={spacing}
+        sx={{ listStyle: 'none', m: 0, p: 0 }}
         {...listProps}
       >
-        {navigation.links.map((item, index) => {
+        {links.map((item, index) => {
           if (direction.startsWith('column')) {
             return (
-              <Item
+              <ItemWithLink
                 key={item.id}
                 item={item}
-                className={styles.item_fullFilled}
-                linkProps={linkProps}
+                activeClassName={styles.activeLink}
                 {...itemProps}
               />
             );
           }
 
-          return navigation.links.length > index + 1 ? (
+          return links.length > index + 1 ? (
             <React.Fragment key={item.id}>
-              <Item
-                key={item.id}
+              <ItemWithLink
                 item={item}
-                className={styles.item}
-                linkProps={linkProps}
+                activeClassName={styles.activeLink}
+                sx={{ width: 'auto' }}
                 {...itemProps}
               />
               <DotDivider
@@ -61,10 +59,10 @@ const Nav = ({
               />
             </React.Fragment>
           ) : (
-            <Item
+            <ItemWithLink
               key={item.id}
               item={item}
-              linkProps={linkProps}
+              activeClassName={styles.activeLink}
               {...itemProps}
             />
           );

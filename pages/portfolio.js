@@ -1,27 +1,12 @@
 import React from 'react';
-import Header from '../src/components/Header/Header';
+import Header from '../src/components/Header';
 import { Container, Stack, Box, Button, CircularProgress } from '@mui/material';
 import Seo from '../src/components/Seo';
 import { fetchAPI } from '../src/lib/api';
-import Nav from '../src/components/Nav/Nav';
-import Projects from '../src/components/Projects/Projects';
-import Footer from '../src/components/Footer/Footer';
-import PageTransition from '../src/components/PageTransition/PageTransition';
-
-const circularProgressStyles = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  marginTop: '-12px',
-  marginLeft: '-12px',
-};
-
-const buttonContainerStyles = {
-  m: 'auto',
-  position: 'relative',
-  display: 'block',
-  alignSelf: 'center',
-};
+import Nav from '../src/components/Nav';
+import Projects from '../src/components/Projects';
+import Footer from '../src/components/Footer';
+import PageTransition from '../src/components/PageTransition';
 
 const numberOfAdded = 4;
 
@@ -59,25 +44,29 @@ const Portfolio = ({ portfolio, firstProjects, numberOfProjects }) => {
           avatarWidth={150}
           addContent={`пока ${numberOfProjects}`}
         />
-        <Projects projects={projects} />
-        {hasMore && (
-          <Box sx={buttonContainerStyles}>
-            <Button
-              disabled={nextProjectsLoading}
-              variant='contained'
-              onClick={getMoreProjects}
-            >
-              Показать ещё
-            </Button>
-            {nextProjectsLoading && (
-              <CircularProgress
-                component='div'
-                size={24}
-                sx={circularProgressStyles}
-              />
+        <Box component='main'>
+          <Stack component='section' spacing={2}>
+            <Projects projects={projects} />
+            {hasMore && (
+              <Box sx={buttonContainerStyles}>
+                <Button
+                  disabled={nextProjectsLoading}
+                  variant='contained'
+                  onClick={getMoreProjects}
+                >
+                  Показать ещё
+                </Button>
+                {nextProjectsLoading && (
+                  <CircularProgress
+                    component='div'
+                    size={24}
+                    sx={circularProgressStyles}
+                  />
+                )}
+              </Box>
             )}
-          </Box>
-        )}
+          </Stack>
+        </Box>
         <Footer />
       </Stack>
     </Container>
@@ -98,3 +87,18 @@ export async function getStaticProps() {
 }
 
 export default Portfolio;
+
+const circularProgressStyles = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  marginTop: '-12px',
+  marginLeft: '-12px',
+};
+
+const buttonContainerStyles = {
+  m: 'auto',
+  position: 'relative',
+  display: 'block',
+  alignSelf: 'center',
+};

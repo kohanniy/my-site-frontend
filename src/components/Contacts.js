@@ -1,24 +1,14 @@
 import React from 'react';
-import { Box, Divider, List, ListItem, Typography } from '@mui/material';
-import Link from '../Link';
-import DotDivider from '../DotDivider/DotDivider';
-import { GlobalContext } from '../../contexts/globalContext';
-import styles from './Contacts.module.css';
-
-const Item = ({ item, linkProps = null, ...props }) => (
-  <ListItem disablePadding key={item.id} {...props}>
-    <Link href={item.link} target='_blanc' {...linkProps}>
-      {item.name}
-    </Link>
-  </ListItem>
-);
+import { Box, List, Typography } from '@mui/material';
+import ItemWithLink from './ItemWithLink';
+import DotDivider from './DotDivider';
+import { GlobalContext } from '../contexts/globalContext';
 
 const Contacts = ({
   direction = 'row',
   gap = 2,
   listProps = null,
   itemProps = null,
-  linkProps = null,
 }) => {
   const {
     contacts: {
@@ -43,11 +33,10 @@ const Contacts = ({
         {body.map((item, index) => {
           if (direction.startsWith('column')) {
             return (
-              <Item
+              <ItemWithLink
                 key={item.id}
                 item={item}
-                className={styles.item_fullFilled}
-                linkProps={linkProps}
+                target='_blank'
                 {...itemProps}
               />
             );
@@ -55,11 +44,10 @@ const Contacts = ({
 
           return body.length > index + 1 ? (
             <React.Fragment key={item.id}>
-              <Item
-                key={item.id}
+              <ItemWithLink
                 item={item}
-                className={styles.item}
-                linkProps={linkProps}
+                target='_blank'
+                sx={{ width: 'auto' }}
                 {...itemProps}
               />
               <DotDivider
@@ -69,10 +57,10 @@ const Contacts = ({
               />
             </React.Fragment>
           ) : (
-            <Item
+            <ItemWithLink
               key={item.id}
               item={item}
-              linkProps={linkProps}
+              target='_blank'
               {...itemProps}
             />
           );

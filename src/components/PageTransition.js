@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { pageTransitionVariants } from '../../lib/motionVarinats';
+import { pageTransitionVariants } from '../lib/motionVarinats';
 
 const PageTransition = (props) => {
   return (

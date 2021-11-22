@@ -1,0 +1,19 @@
+.activeLink {
+  color: #7b1fa2;
+  text-decoration-color: #7b1fa2;
+}
+
+.projectListItem::before {
+  content: '—';
+  display: block;
+  margin-right: 10px;
+}
+
+.sharedButton {
+  display: flex;
+  align-items: center;
+}
+
+.sharedButtonIcon {
+  margin-right: 5px;
+}

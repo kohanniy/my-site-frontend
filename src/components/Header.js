@@ -1,9 +1,8 @@
-import React from 'react';
 import Image from 'next/image';
 import { Box, Stack, Typography } from '@mui/material';
-import { getStrapiMedia } from '../../lib/media';
-import { blurDataURL } from '../../lib/constants';
-import Link from '../Link';
+import { getStrapiMedia } from '../lib/media';
+import { blurDataURL } from '../lib/constants';
+import Link from './Link';
 
 const Header = ({
   content,
@@ -49,7 +48,7 @@ const Header = ({
         </Typography>
         <Typography variant='subtitle1'>{description}</Typography>
       </Box>
-      {navigation && navigation}
+      {navigation}
     </Stack>
   );
 };

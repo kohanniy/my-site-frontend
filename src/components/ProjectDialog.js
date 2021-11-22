@@ -8,8 +8,6 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-const responsivePaddingStyles = { xs: '8px 12px', sm: '16px 24px' };
-
 const ProjectDialog = ({ open, onClose, title, children, ...props }) => {
   return (
     <Dialog
@@ -40,3 +38,5 @@ const ProjectDialog = ({ open, onClose, title, children, ...props }) => {
 };
 
 export default ProjectDialog;
+
+const responsivePaddingStyles = { p: { xs: '8px 12px', sm: '16px 24px' } };

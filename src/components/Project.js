@@ -13,26 +13,13 @@ import {
   Paper,
 } from '@mui/material';
 import ReactMarkdown from 'react-markdown';
-import { getStrapiMedia } from '../../lib/media';
-import { blurDataURL } from '../../lib/constants';
-import styles from './Project.module.css';
-import ProjectDialog from '../ProjectDialog/ProjectDialog';
-import Link from '../Link';
+import { getStrapiMedia } from '../lib/media';
+import { blurDataURL } from '../lib/constants';
+import styles from '../styles/Common.module.css';
+import ProjectDialog from './ProjectDialog';
+import Link from './Link';
 import { motion } from 'framer-motion';
-import { projectVariants } from '../../lib/motionVarinats';
-
-const dialogStyle = {
-  '& .MuiPaper-root': {
-    maxHeight: '100%',
-    color: 'common.black',
-    width: {
-      xs: 'calc(100% - 10px)',
-    },
-    m: {
-      xs: '0 10px',
-    },
-  },
-};
+import { projectVariants } from '../lib/motionVarinats';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Zoom ref={ref} {...props} />;
@@ -52,7 +39,12 @@ const ListComponent = ({ node, ordered = 'false', ...props }) => (
 );
 
 const ListItemComponent = ({ node, ordered = 'false', ...props }) => (
-  <ListItem disableGutters className={styles.item} {...props} />
+  <ListItem
+    disableGutters
+    sx={listItemStyles}
+    className={styles.projectListItem}
+    {...props}
+  />
 );
 
 const LinkComponent = ({ node, ...props }) => (
@@ -70,7 +62,7 @@ const Project = ({ project }) => {
   return (
     <>
       <Card
-        sx={{ height: '100%', width: '100%'}}
+        sx={{ height: '100%', width: '100%' }}
         component={motion.div}
         initial='offscreen'
         whileInView='onscreen'
@@ -78,10 +70,7 @@ const Project = ({ project }) => {
         viewport={{ once: true, amount: 0.1 }}
       >
         <CardActionArea onClick={handleOpenProject}>
-          <Box sx={{
-            height: '300px',
-            position: 'relative',
-          }}>
+          <Box sx={{ height: '300px', position: 'relative' }}>
             <Image
               layout='fill'
               objectFit='cover'
@@ -112,13 +101,12 @@ const Project = ({ project }) => {
         maxWidth='lg'
         PaperComponent={PaperComponent}
       >
-        <Box component='figure' className={styles.figure}>
+        <Box component='figure' m='0 0 20px 0'>
           <Image
             width={project.image.width}
             height={project.image.height}
             alt='обложка проекта'
             src={getStrapiMedia(project.image)}
-            className={styles.image}
           />
         </Box>
         <Grid sx={{ m: '0 auto' }} item xs={12} sm={10} md={9}>
@@ -140,3 +128,24 @@ const Project = ({ project }) => {
 };
 
 export default Project;
+
+const dialogStyle = {
+  '& .MuiPaper-root': {
+    maxHeight: '100%',
+    color: 'common.black',
+    width: {
+      xs: 'calc(100% - 10px)',
+    },
+    m: {
+      xs: '0 10px',
+    },
+  },
+};
+
+const listItemStyles = {
+  fontWeight: '400',
+  fontSize: '0.875rem',
+  lineHeight: 1.2,
+  pt: '4px',
+  pb: '4px',
+};

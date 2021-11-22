@@ -12,12 +12,8 @@ const Card = ({ article }) => {
             <Image image={article.image} />
           </div>
           <div>
-            <p id='category'>
-              {article.category.name}
-            </p>
-            <p id='title'>
-              {article.title}
-            </p>
+            <p id='category'>{article.category.name}</p>
+            <p id='title'>{article.title}</p>
           </div>
         </div>
       </a>

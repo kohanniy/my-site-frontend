@@ -2,12 +2,12 @@ import React from 'react';
 import { Grid, Stack } from '@mui/material';
 import Seo from '../src/components/Seo';
 import { fetchAPI } from '../src/lib/api';
-import Header from '../src/components/Header/Header';
-import Nav from '../src/components/Nav/Nav';
-import Skills from '../src/components/Skills/Skills';
-import Footer from '../src/components/Footer/Footer';
-import AboutMe from '../src/components/AboutMe/AboutMe';
-import PageTransition from '../src/components/PageTransition/PageTransition';
+import Header from '../src/components/Header';
+import Nav from '../src/components/Nav';
+import Skills from '../src/components/Skills';
+import Footer from '../src/components/Footer';
+import AboutMe from '../src/components/AboutMe';
+import PageTransition from '../src/components/PageTransition';
 
 const Home = ({ homepage, skillsData, basicSkillsData, aboutMe }) => {
   return (
