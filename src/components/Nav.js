@@ -4,7 +4,6 @@ import { Box, Stack } from '@mui/material';
 import DotDivider from './DotDivider';
 import ItemWithLink from './ItemWithLink';
 import { GlobalContext } from '../contexts/globalContext';
-import styles from '../styles/Common.module.css';
 
 const Nav = ({
   direction = 'row',
@@ -25,7 +24,6 @@ const Nav = ({
   return (
     <Box component='nav' {...containerProps}>
       <Stack
-        className={styles.list}
         component='ul'
         direction={direction}
         spacing={spacing}
@@ -38,7 +36,6 @@ const Nav = ({
               <ItemWithLink
                 key={item.id}
                 item={item}
-                activeClassName={styles.activeLink}
                 {...itemProps}
               />
             );
@@ -48,7 +45,6 @@ const Nav = ({
             <React.Fragment key={item.id}>
               <ItemWithLink
                 item={item}
-                activeClassName={styles.activeLink}
                 sx={{ width: 'auto' }}
                 {...itemProps}
               />
@@ -62,7 +58,6 @@ const Nav = ({
             <ItemWithLink
               key={item.id}
               item={item}
-              activeClassName={styles.activeLink}
               {...itemProps}
             />
           );

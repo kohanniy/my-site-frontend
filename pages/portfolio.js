@@ -10,6 +10,20 @@ import PageTransition from '../src/components/PageTransition';
 
 const numberOfAdded = 4;
 
+const containerStyles = {
+  width: '100%',
+  maxWidth: '1200px',
+  m: '0 auto',
+  pr: {
+    xs: 2,
+    md: 3,
+  },
+  pl: {
+    xs: 2,
+    md: 3,
+  },
+};
+
 const Portfolio = ({ portfolio, firstProjects, numberOfProjects }) => {
   const [projects, setProjects] = React.useState(firstProjects);
   const [hasMore, setHasMore] = React.useState(true);
@@ -34,42 +48,40 @@ const Portfolio = ({ portfolio, firstProjects, numberOfProjects }) => {
   }, [numberOfProjects, projects.length]);
 
   return (
-    <Container component={PageTransition} maxWidth='lg'>
+    <Stack sx={containerStyles} spacing={3} component={PageTransition}>
       <Seo seo={portfolio.seo} />
-      <Stack spacing={3}>
-        <Header
-          content={portfolio.content}
-          navigation={<Nav />}
-          avatarHeight={150}
-          avatarWidth={150}
-          addContent={`пока ${numberOfProjects}`}
-        />
-        <Box component='main'>
-          <Stack component='section' spacing={2}>
-            <Projects projects={projects} />
-            {hasMore && (
-              <Box sx={buttonContainerStyles}>
-                <Button
-                  disabled={nextProjectsLoading}
-                  variant='contained'
-                  onClick={getMoreProjects}
-                >
-                  Показать ещё
-                </Button>
-                {nextProjectsLoading && (
-                  <CircularProgress
-                    component='div'
-                    size={24}
-                    sx={circularProgressStyles}
-                  />
-                )}
-              </Box>
-            )}
-          </Stack>
-        </Box>
-        <Footer />
-      </Stack>
-    </Container>
+      <Header
+        content={portfolio.content}
+        navigation={<Nav />}
+        avatarHeight={150}
+        avatarWidth={150}
+        addContent={`пока ${numberOfProjects}`}
+      />
+      <Box component='main'>
+        <Stack component='section' spacing={2}>
+          <Projects projects={projects} />
+          {hasMore && (
+            <Box sx={buttonContainerStyles}>
+              <Button
+                disabled={nextProjectsLoading}
+                variant='contained'
+                onClick={getMoreProjects}
+              >
+                Показать ещё
+              </Button>
+              {nextProjectsLoading && (
+                <CircularProgress
+                  component='div'
+                  size={24}
+                  sx={circularProgressStyles}
+                />
+              )}
+            </Box>
+          )}
+        </Stack>
+      </Box>
+      <Footer />
+    </Stack>
   );
 };
 

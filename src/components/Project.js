@@ -15,7 +15,6 @@ import {
 import ReactMarkdown from 'react-markdown';
 import { getStrapiMedia } from '../lib/media';
 import { blurDataURL } from '../lib/constants';
-import styles from '../styles/Common.module.css';
 import ProjectDialog from './ProjectDialog';
 import Link from './Link';
 import { motion } from 'framer-motion';
@@ -42,7 +41,6 @@ const ListItemComponent = ({ node, ordered = 'false', ...props }) => (
   <ListItem
     disableGutters
     sx={listItemStyles}
-    className={styles.projectListItem}
     {...props}
   />
 );
@@ -148,4 +146,10 @@ const listItemStyles = {
   lineHeight: 1.2,
   pt: '4px',
   pb: '4px',
+
+  '&::before': {
+    content: '"—"',
+    display: 'block',
+    mr: '10px',
+  }
 };

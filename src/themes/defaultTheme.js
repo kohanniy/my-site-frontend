@@ -19,9 +19,6 @@ export let defaultTheme = createTheme({
           color: colors.black,
         },
         '#__next': {
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
           '& header': {
             flexShrink: 0,
           },

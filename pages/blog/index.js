@@ -3,8 +3,10 @@ import { Container, Stack, Box, Typography } from '@mui/material';
 import Nav from '../../src/components/Nav';
 import Footer from '../../src/components/Footer';
 import PageTransition from '../../src/components/PageTransition';
+import { fetchAPI } from '../../src/lib/api';
 
-const Blog = () => {
+const Blog = ({ articles }) => {
+  console.log(articles);
   return (
     <Container component={PageTransition} maxWidth='lg'>
       <Stack
@@ -26,6 +28,17 @@ const Blog = () => {
       </Stack>
     </Container>
   );
+};
+
+export async function getStaticProps() {
+  const [articles] = await Promise.all([
+    fetchAPI('/articles'),
+  ]);
+
+  return {
+    props: { articles },
+    revalidate: 1,
+  }
 }
 
 export default Blog;
